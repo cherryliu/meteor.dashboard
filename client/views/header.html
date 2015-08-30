@@ -1,0 +1,26 @@
+<template name="Header">
+    <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+      <div class="navbar-header">
+          <a class="navbar-brand" href="/">MPS Dashboard</a>
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+          </button>
+      </div>
+      <div class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+              {{#if currentUser}}
+              <li class="active"><a href="/instances">Instances</a></li>
+              <li class="active"><a href="/things">Applications</a></li>
+              {{/if}}
+              <li class="active"><a href="/Documentation">Documentation</a></li>
+          </ul>
+          <ul class="nav navbar-nav navbar-right">
+              {{> loginButtons}} <!-- here -->
+          </ul>
+      </div>
+  </div>
+   {{> flashMessages}}
+</template>

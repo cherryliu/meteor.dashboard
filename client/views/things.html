@@ -1,0 +1,34 @@
+<template name="Things">
+  {{> Header}}
+
+  <div class="container">
+    <h2>Applications</h2>
+    <p><a class="btn btn-primary btn-sm" href="/new_thing" role="button">Create a new application &raquo;</a></p>
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Description</th>
+          <th>Status</th>
+        </tr>
+      </thead>
+      <tbody>
+        {{#each things}}
+          {{> EditThingModal this}}
+        <tr>
+          <td>{{name}}</td>
+          <td>{{description}}</td>
+          <td>Active</td>
+          <td>
+            <button type="button" class="btn btn-info btn-primary btn-sm hidden-xs" data-toggle="modal" data-target="#editThingModal_{{_id}}">Edit</button>
+            <a class="btn btn-danger btn-sm delete" href="#" role="button">Delete</a>
+          </td>
+        </tr>
+        {{/each}}
+      </tbody>
+    </table>
+
+  </div>
+
+  {{> Footer}}
+</template>
